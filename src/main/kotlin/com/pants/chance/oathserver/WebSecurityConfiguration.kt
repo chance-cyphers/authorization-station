@@ -6,6 +6,8 @@ import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.crypto.password.NoOpPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 
 @Configuration
 class WebSecurityConfiguration : WebSecurityConfigurerAdapter() {
@@ -26,11 +28,11 @@ class WebSecurityConfiguration : WebSecurityConfigurerAdapter() {
     override fun configure(auth: AuthenticationManagerBuilder?) {
         auth!!.inMemoryAuthentication()
                 .withUser("frankieMuniz")
-                .password("123456")
+                .password("{noop}123456")
                 .roles("USER")
                 .and()
                 .withUser("jobertRownyDr")
-                .password("987654")
+                .password("{noop}987654")
                 .roles("USER", "ADMIN")
     }
 

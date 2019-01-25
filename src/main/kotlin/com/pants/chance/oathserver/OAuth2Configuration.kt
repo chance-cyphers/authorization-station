@@ -20,8 +20,8 @@ class OAuth2Configuration : AuthorizationServerConfigurerAdapter() {
     override fun configure(clients: ClientDetailsServiceConfigurer?) {
         clients!!.inMemory()
                 .withClient("race_place")
-                .secret("asd")
-                .authorizedGrantTypes("refresh_token", "password", "cliend_credentials")
+                .secret("{noop}secreterthanyou")
+                .authorizedGrantTypes("refresh_token", "password", "client_credentials")
                 .scopes("mobileclient")
     }
 
